@@ -13,8 +13,10 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  startGame(){
-    localStorage.setItem("name", this.nameKey.nativeElement.value);
-  }
+
+   startGame(){
+     localStorage.setItem("name", this.nameKey.nativeElement.value);
+   }
+
 
 }
