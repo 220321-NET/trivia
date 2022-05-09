@@ -9,6 +9,8 @@ import { GamesComponent } from './games/games.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DailyQuestionComponent } from './daily-question/daily-question.component';
 import { AuthService } from './guards/auth.service';
+import { DifficultyComponent } from './difficulty/difficulty.component';
+import { QuestAmountComponent } from './quest-amount/quest-amount.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"login",pathMatch:"full"},
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path:"games", component:GamesComponent, canActivate:[AuthService]},
   {path:"homepage", component:HomepageComponent, canActivate:[AuthService]},
   {path:"daily", component:DailyQuestionComponent, canActivate:[AuthService]},
-  {path:"welcome", component:WelcomeComponent, canActivate:[AuthService]}
+  {path:"welcome", component:WelcomeComponent, canActivate:[AuthService]},
+  {path:"difficulty", component:DifficultyComponent, canActivate:[AuthService]},
+  {path:"quest-amount", component:QuestAmountComponent, canActivate:[AuthService]}
 
 ];
 

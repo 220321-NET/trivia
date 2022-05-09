@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\MyMic\Revature\trivia\FrontEnd\AngularTrivia\src\app\homepage\homepage.component.scss">
+    <title>Difficulty</title>
+  </head>
+<body>
+
+
+    <section id="Difficulty" class="difficulty">
+        <div class="outside-flex">
+            <h2>Difficulty</h2>
+
+                <div class="inside-flex">
+
+                  <form routerLink="/quest-amount">
+                    <button class ="grid-item-easy" style="width:300px;height:200px;" (click)="startGame('easy')"></button>
+                  </form>
+
+                  <form routerLink="/quest-amount">
+                    <button class ="grid-item-medium" style="width:300px;height:200px;" (click)="startGame('medium')"></button>
+                  </form>
+
+                  <form routerLink="/quest-amount">
+                    <button class ="grid-item-hard" style="width:300px;height:200px;" (click)="startGame('hard')"></button>
+                  </form>
+
+
+                </div>
+            </div>
+    </section>
+
+</body>
+</html>
+
+

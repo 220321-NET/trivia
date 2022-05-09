@@ -18,13 +18,22 @@ export class QuestionsService {
   // getQuestionJson(){
   //   return this.http.get<any>('https://opentdb.com/api.php?amount=10');
   //   //return this.http.get<any>("assets/questions.json");
+
+  // }
+  getQuestionByInputJson(id: any, difficulty: any, amount: any){
+
  }
   getQuestionByCategoryJson(id: any){
-    if(id > 0){
-      return this.http.get<any>(`https://opentdb.com/api.php?amount=10&category=${id}`);
-    }else{
+
+    if(id > 0)
+    {
+      return this.http.get<any>(`https://opentdb.com/api.php?amount=${amount}&category=${id}&difficulty=${difficulty}`);
+    }
+    else
+    {
       return this.http.get<any>('https://opentdb.com/api.php?amount=10');
     }
+
     
 
   }
@@ -32,5 +41,7 @@ export class QuestionsService {
   setCategory(category: number)
   {
     this.categoryurl = `&category=${category}`;
+
   }
+
 }

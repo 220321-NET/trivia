@@ -82,12 +82,11 @@ h2 {
   grid-gap: 20px;
 }
 
-
-.category {
+.difficulty {
   height: 600px;
 }
 
-.category .inside-flex {
+.difficulty .inside-flex {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -103,12 +102,8 @@ h2 {
 }
 
 
-
-
-
-
-.grid-item-vgames {
-  background-image: url("../category/ctg-imgs/ctg-vgames.png");
+.grid-item-easy {
+  background-image: url("../difficulty/diff-imgs/easy.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -117,7 +112,7 @@ h2 {
   transition: .5s;
 }
 
-.grid-item-vgames p {
+.grid-item-easy p {
   margin-top: 25px;
   padding: 10px;
   position: absolute;
@@ -125,8 +120,8 @@ h2 {
   color: rgb(250, 250, 250);
 }
 
-.grid-item-books {
-  background-image: url("../category/ctg-imgs/ctg-books.png");
+.grid-item-medium {
+  background-image: url("../difficulty/diff-imgs/medium.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -135,7 +130,7 @@ h2 {
   transition: .5s;
 }
 
-.grid-item-books p {
+.grid-item-medium p {
   margin-top: 25px;
   padding: 10px;
   position: absolute;
@@ -143,8 +138,8 @@ h2 {
   color: rgb(250, 250, 250);
 }
 
-.grid-item-geography {
-  background-image: url("../category/ctg-imgs/ctg-geography.png");
+.grid-item-hard {
+  background-image: url("../difficulty/diff-imgs/hard.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -153,7 +148,7 @@ h2 {
   transition: .5s;
 }
 
-.grid-item-geography p {
+.grid-item-hard p {
   margin-top: 25px;
   padding: 10px;
   position: absolute;
@@ -161,122 +156,10 @@ h2 {
   color: rgb(250, 250, 250);
 }
 
-.grid-item-history {
-  background-image: url("../category/ctg-imgs/ctg-history.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: solid  rgb(30, 35, 38);
-  opacity: .5;
-  transition: .5s;
-}
 
-.grid-item-history p {
-  margin-top: 25px;
-  padding: 10px;
-  position: absolute;
-  background-color:  rgb(30, 35, 38);
-  color: rgb(250, 250, 250);
-}
-
-.grid-item-science {
-  background-image: url("../category/ctg-imgs/ctg-science.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: solid  rgb(30, 35, 38);
-  opacity: .5;
-  transition: .5s;
-}
-
-.grid-item-science p {
-  margin-top: 25px;
-  padding: 10px;
-  position: absolute;
-  background-color:  rgb(30, 35, 38);
-  color: rgb(250, 250, 250);
-}
-
-.grid-item-film {
-  background-image: url("../category/ctg-imgs/ctg-film.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: solid  rgb(30, 35, 38);
-  opacity: .5;
-  transition: .5s;
-}
-
-.grid-item-film p {
-  margin-top: 25px;
-  padding: 10px;
-  position: absolute;
-  background-color:  rgb(30, 35, 38);
-  color: rgb(220, 214, 196);
-}
-
-.grid-item-mythology {
-  background-image: url("../category/ctg-imgs/ctg-mythology.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: solid  rgb(30, 35, 38);
-  opacity: .5;
-  transition: .5s;
-}
-
-.grid-item-mythology p {
-  margin-top: 25px;
-  padding: 10px;
-  position: absolute;
-  background-color:  rgb(30, 35, 38);
-  color: rgb(220, 214, 196);
-}
-
-.grid-item-sports {
-  background-image: url("../category/ctg-imgs/ctg-sports.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: solid  rgb(30, 35, 38);
-  opacity: .5;
-  transition: .5s;
-}
-
-.grid-item-sports p {
-  margin-top: 25px;
-  padding: 10px;
-  position: absolute;
-  background-color:  rgb(30, 35, 38);
-  color: rgb(220, 214, 196);
-}
-
-.grid-item-anime {
-  background-image: url("../category/ctg-imgs/ctg-anime.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: solid  rgb(30, 35, 38);
-  opacity: .5;
-  transition: .5s;
-}
-
-.grid-item-anime p {
-  margin-top: 25px;
-  padding: 10px;
-  position: absolute;
-  background-color:  rgb(30, 35, 38);
-  color: rgb(220, 214, 196);
-}
-
-.grid-item-vgames:hover, .grid-item-books:hover,.grid-item-geography:hover, .grid-item-history:hover, .grid-item-science:hover,.grid-item-film:hover, .grid-item-anime:hover,.grid-item-sports:hover, .grid-item-mythology:hover {
+.grid-item-easy:hover, .grid-item-medium:hover, .grid-item-hard:hover{
   opacity: 1;
 }
-
-
-
-
-
 
 @media screen and (max-width: 980px) {
 
