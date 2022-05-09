@@ -3,7 +3,6 @@ import { DailyQuestionService } from '../service/daily-question.service';
 import { interval } from 'rxjs';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 import { decodeEntity } from 'html-entities';
-import { Daily } from '../models/Daily';
 
 @Component({
   selector: 'app-questions',
@@ -14,7 +13,9 @@ export class DailyQuestionComponent implements OnInit {
 
   public name: string = "";
   public questionListRand: any = [];
+
   public dailyQuest: Daily = new Daily();
+
   private setCounter: number = 30;
   counter = this.setCounter;
   public intervals: any;
@@ -26,7 +27,6 @@ export class DailyQuestionComponent implements OnInit {
   ngOnInit(): void {
     this.name = localStorage.getItem("name")!;
     this.startCounter();
-    this.getQuestionNew();
   }
 
   getQuestionNew() {
@@ -49,8 +49,7 @@ export class DailyQuestionComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustHtml(value);
   }
   answer(choice: string) {
-    if (this.dailyQuest.Ans === choice)
-      this.result = "Congrats! You got today's daily question correct!";
+    if (this.dailyQuest.Ans === choice) this.result = "Congrats! You got today's daily question correct!";
 
     this.correctAns = `The correct answer was: ${this.dailyQuest.Ans}`;
 

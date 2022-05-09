@@ -4,6 +4,7 @@ import { interval } from 'rxjs';
 import { Router } from '@angular/router';
 import { Constants } from '../help/constants';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
+import { DifficultyComponent } from '../difficulty/difficulty.component';
 
 @Component({
   selector: 'app-questions',
@@ -27,22 +28,28 @@ export class QuestionsComponent implements OnInit {
   public correctAnswer: number =0;
   isGameOver : boolean = false;
   public idCategory: string = "0";
+  //difficulty stuff
+  public idDifficulty: string = "";
+  //question number stuff
+  public idAmount: string = "0";
   constructor(private questionService: QuestionsService, private router:Router, private sanitizer: DomSanitizer) { }
-  
- 
- public getDecoded(value: any): SafeHtml {
+
+
+  public getDecoded(value: any): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(value);
- }
+  }
 
   ngOnInit(): void {
     this.name = localStorage.getItem(Constants.UserName)!;
     this.idCategory = localStorage.getItem("idCategory")!;
-    this.getAllQuestions(this.idCategory);
+    this.idDifficulty = localStorage.getItem("idDifficulty")!;
+    this.idAmount = localStorage.getItem("idAmount")!;
+    this.getAllQuestions(this.idCategory, this.idDifficulty, this.idAmount);
     this.startCounter();
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
-  getAllQuestions(id: any) {
-    this.questionService.getQuestionByCategoryJson(id)
+  getAllQuestions(id: any, difficulty: any, amount: any) {
+    this.questionService.getQuestionByInputJson(id, difficulty, amount)
 
       .subscribe((res: { results: any; }) => {
         console.log(res);
@@ -52,7 +59,7 @@ export class QuestionsComponent implements OnInit {
           this.questionListRand[i] = this.randomArrayShuffle(this.questionList[i].incorrect_answers);
         }
       });
-      
+
   }
   nextQuestions() {
     this.currentQuestion++;
@@ -69,7 +76,7 @@ export class QuestionsComponent implements OnInit {
   reinitialize() {
     this.currentQuestion = 0;
     this.points = 0;
-    this.getAllQuestions(this.idCategory);
+    this.getAllQuestions(this.idCategory, this.idDifficulty, this.idAmount);
     this.resetCounter();
   }
 
@@ -128,7 +135,7 @@ export class QuestionsComponent implements OnInit {
     return this.progress;
   }
 
-   randomArrayShuffle(array:any) {
+  randomArrayShuffle(array:any) {
     var currentIndex = array.length, temporaryValue, randomIndex;
     while (0 !== currentIndex) {
       randomIndex = Math.floor(Math.random() * currentIndex);
