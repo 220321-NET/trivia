@@ -12,12 +12,13 @@ export class QuestionsService {
   //   return this.http.get<any>('https://opentdb.com/api.php?amount=10');
   //   //return this.http.get<any>("assets/questions.json");
   // }
-  getQuestionByCategoryJson(id: any){
+  getQuestionByInputJson(id: any, difficulty: any, amount: any){
     if(id > 0){
-      return this.http.get<any>(`https://opentdb.com/api.php?amount=10&category=${id}`);
+      return this.http.get<any>(`https://opentdb.com/api.php?amount=${amount}&category=${id}&difficulty=${difficulty}`);
     }else{
       return this.http.get<any>('https://opentdb.com/api.php?amount=10');
     }
-    
+
   }
+
 }

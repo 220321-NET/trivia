@@ -7,6 +7,7 @@
             <div class="quiz-header">
                 <h4 style="font-family: cursive;"> Tucker's Trivia Game</h4>
                 <span style="font-style: italic;">Welcome {{name}}</span>
+                <br><span style="font-style: italic">Difficulty: {{idDifficulty}}</span>
             </div>
         </div>
 
@@ -56,13 +57,15 @@
         <ng-container *ngIf="isGameOver">
             <div class="row d-flex justify-content-between">
                 <div class="result tex-center col-md col-sm-12">
-                    <h3>Congrats! </h3>
-                    <h4> <br>You have completed the game <br>This is your results:</h4>
+                    <h3 style="text-align:center" >Congrats! </h3>
+                    <h4> <br style="text-align:center">You have completed the game <br style="text-align:center"> This is your results:</h4>
                     <p>Total Correct answered: {{correctAnswer}}</p>
                     <p>Your score: {{points}}</p>
-                    <button class="btn btn-primary btn-lg" (click)="reload()" >
-                        Replay !!!
+                    <button class="btn btn-primary btn-lg" style="text-align:center" (click)="reload()" >
+                        Try Again
                     </button>
+                    <span><br><br></span> 
+                    <button class="btn btn-primary btn-lg" style="text-align:center" routerLink="/homepage" > Go Home </button>
                 </div>
             </div>
         </ng-container>

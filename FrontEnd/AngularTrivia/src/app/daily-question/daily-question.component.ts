@@ -36,7 +36,7 @@ export class DailyQuestionComponent implements OnInit {
 
   public getDecoded(value: any): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(value);
- }
+  }
   answer(currentQtn: number, choice: any) {
     if(currentQtn === this.questionList.length - 1){
       this.isGameOver = true;
