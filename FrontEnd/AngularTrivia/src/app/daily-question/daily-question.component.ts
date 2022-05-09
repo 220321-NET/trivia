@@ -12,13 +12,13 @@ import { decodeEntity } from 'html-entities';
 export class DailyQuestionComponent implements OnInit {
 
   public name: string = "";
-  public questionList: any = [];
   public questionListRand: any = [];
-  public currentQuestion: number = 0;
+
+  public dailyQuest: Daily = new Daily();
+
   private setCounter: number = 30;
   counter = this.setCounter;
   public intervals: any;
-  public correctAnswer: number = 0;
   isGameOver : boolean = false;
   public result: string = "Better luck next time!";
   public correctAns : string = "";
@@ -26,32 +26,34 @@ export class DailyQuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.name = localStorage.getItem("name")!;
-    this.getAllQuestions();
     this.startCounter();
   }
-  getAllQuestions() {
-    this.dailyQuestionService.getQuestionJson()
-      .subscribe(res => {
-        this.questionList = decodeEntity(res.results);
-        this.questionList[0].incorrect_answers.push(this.questionList[0].correct_answer);
-        this.questionListRand[0] = this.randomArrayShuffle(this.questionList[0].incorrect_answers);
-      })
+
+  getQuestionNew() {
+    this.dailyQuestionService.getDaily().subscribe((data: Daily[]) => {
+      this.dailyQuest.Question = data[0].Question;
+      this.dailyQuest.Ans = data[0].Ans;
+      this.dailyQuest.NotAns1 = data[0].NotAns1;
+      this.dailyQuest.NotAns2 = data[0].NotAns2;
+      this.dailyQuest.NotAns3 = data[0].NotAns3;
+      console.log(`${this.dailyQuest.Ans}`);
+      this.questionListRand.push(this.dailyQuest.Ans, this.dailyQuest.NotAns1, this.dailyQuest.NotAns2, this.dailyQuest.NotAns3,);
+      this.questionListRand = this.randomArrayShuffle(this.questionListRand);
+      this.dailyQuest.Question = this.dailyQuest.Question.replaceAll("&quot;", `"`);
+      console.log(`${this.dailyQuest.Question}`);
+      console.log(this.questionListRand);
+    })
   }
 
   public getDecoded(value: any): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(value);
- }
-  answer(currentQtn: number, choice: any) {
-    if(currentQtn === this.questionList.length - 1){
-      this.isGameOver = true;
-      this.stopCounter();
-    }
-    var quota  = this.counter/this.setCounter;
+  }
+  answer(choice: string) {
+    if (this.dailyQuest.Ans === choice) this.result = "Congrats! You got today's daily question correct!";
 
-    if (this.questionList[currentQtn]?.correct_answer === choice)
-      this.result = "Congrats! You got today's daily question correct!";
+    this.correctAns = `The correct answer was: ${this.dailyQuest.Ans}`;
 
-    this.correctAns = `The correct answer was: ${this.questionList[currentQtn]?.correct_answer}`;
+    this.stopCounter();
   }
 
   startCounter() {
@@ -71,6 +73,7 @@ export class DailyQuestionComponent implements OnInit {
   stopCounter() {
     this.intervals.unsubscribe();
     this.counter = 0;
+    this.isGameOver = true;
 
   }
 

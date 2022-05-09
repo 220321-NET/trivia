@@ -16,12 +16,12 @@
       <ng-container *ngIf="!isGameOver">
           <div class="question">
               <div class="card">
-                  <h3><div [innerHTML]="getDecoded(questionList[currentQuestion]?.question)"></div></h3>
+                  <h3>{{dailyQuest.Question}}</h3>
               </div>
           </div>
           <div class="options">
-            <ol *ngFor="let choice of questionListRand[currentQuestion]">
-              <li (click)="answer(currentQuestion,choice)">
+            <ol *ngFor="let choice of questionListRand">
+              <li (click)="answer(choice)">
                   <div class="card">{{choice}}</div>
               </li>
           </ol>
