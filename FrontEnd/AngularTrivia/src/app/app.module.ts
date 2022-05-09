@@ -18,8 +18,13 @@ import { GamesComponent } from './games/games.component';
 import { CategoryComponent } from './category/category.component';
 import { DailyQuestionComponent } from './daily-question/daily-question.component';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { DifficultyComponent } from './difficulty/difficulty.component';
 import { QuestAmountComponent } from './quest-amount/quest-amount.component';
+
+import { XyzComponent } from './xyz/xyz.component';
+import { UserStatisticsComponent } from './user-statistics/user-statistics.component';
+
 
 
 
@@ -38,11 +43,15 @@ import { QuestAmountComponent } from './quest-amount/quest-amount.component';
     DailyQuestionComponent,
     DifficultyComponent,
     QuestAmountComponent
+    XyzComponent,
+    UserStatisticsComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    
     FormsModule,
     ReactiveFormsModule
   ],

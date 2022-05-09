@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -20,9 +20,10 @@
     "module": "es2020",
     "lib": [
       "es2020",
-      "dom"
+      "dom" 
     ]
-  },
+  }, 
+  "include": ["src/**/*.ts","tests/**/*.ts"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
