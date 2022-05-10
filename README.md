@@ -1,6 +1,6 @@
 
 # Proposal
-A trivia game 
+An online trivia game with a wide selection of categories, along with a range of difficulty!
 
 ## Tables
 
